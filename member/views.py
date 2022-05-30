@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from member.models import Question, Test
 
+import ai.ml
+
 def chart(req):
     data = [ 8.94, 10.49, 19.30, 21.45, 8.94 ]
     context = {
