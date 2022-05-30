@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        * {
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+
+        .c1 {
+            background: lightcoral;
+            width: 150px;
+        }
+        button {
+            background: limegreen;
+        }
+    </style>
+</head>
+<body>
+<h3>로그인 id: {{ request.session.logid }}</h3>
+<h3>회원가입 작성</h3>
+<img src="/static/img/goosee.png" width="200" height="200">
+<table border="1">
+    <tr>
+        <td class="c1">항목</td>
+        <td width="200">입력</td>
+    </tr>
+     <tr>
+        <td class="c1">로그인</td>
+        <td width="200">
+            <a href="/member/login">
+                <button class="btn btn-danger">로그인 go!</button>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">회원가입</td>
+        <td width="200">
+            <a href="/member/insert">
+                <button class="btn btn-danger">회원가입 go!</button>
+            </a>
+            <a href="/member/test?a=welcome">
+                <button>서버로 전송@@@</button>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">회원탈퇴</td>
+        <td width="200">
+            <a href="/member/del">
+                <button class="btn btn-danger">회원탈퇴 go!</button>
+            </a>
+        </td>
+    </tr>
+    {% if request.session.logid != None %}
+    <tr>
+        <td class="c1">회원정보수정</td>
+        <td width="200">
+            <a href="/member/up/{{ request.session.logid }}">
+                <button class="btn btn-danger">회원정보수정 go!</button>
+            </a>
+        </td>
+    </tr>
+    {% endif %}
+    <tr>
+        <td class="c1">회원검색(개인)</td>
+        <td width="200">
+            <a href="/member/one">
+                <button class="btn btn-danger">회원검색(개인) go!</button>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">회원검색(전체)</td>
+        <td width="200">
+            <a href="/member/all">
+                <button class="btn btn-danger">회원검색(전체) go!</button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
